@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "e000b20b-7540-46f3-b54a-ef43c6c86c41",
+		"name": "Express Store",
+		"description": "The given postman collection contains the list of all relevant APIs to execute for the express store project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20848110"
+	},
+	"item": [
+		{
+			"name": "Register New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"test@test1.com\",\r\n    \"password\":\"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"test@test1.com\",\r\n    \"password\":\"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNDk5YjdmYmQtODZiMS00MGJkLThkYmItMWQwZjdlNmEwZTI5IiwiZW1haWwiOiJ0ZXN0QHRlc3QxLmNvbSIsImlhdCI6MTY4Mjc3Mjg4NiwiZXhwIjoxNjgyNzczNDg2fQ.PkAyTfA--FwEXfWUD7JT7fnoZszyH11rYqlyh5z1mBs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/fetch_all_users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fetch_all_users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTQ2MWU3ZWEtZjZjMy00MWQ4LTg3NzAtYTVlNTVjNGQxMWE5IiwiZW1haWwiOiJ0ZXN0QHRlc3QxLmNvbSIsImlhdCI6MTY4Mjc3OTM2NywiZXhwIjoxNjgyNzc5OTY3fQ.hi0AvbJtxf2dBL6QMsaRsU8X50-Ywg_jmhS0klo-XD8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Shoes/Boots\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/category",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All Categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZWMyYzI4ZGYtYjQ5My00YjcxLTgyNjktNjc4NzEwYmFkMDM4IiwiZW1haWwiOiJ0ZXN0QHRlc3QxLmNvbSIsImlhdCI6MTY4Mjc3OTYwNSwiZXhwIjoxNjgyNzgwMjA1fQ.NpJQqwDjLJyEQyDpHbV6_6Fjj4pJ3vcrPw2dWF7_dpc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/fetch_all_categories",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fetch_all_categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZWMyYzI4ZGYtYjQ5My00YjcxLTgyNjktNjc4NzEwYmFkMDM4IiwiZW1haWwiOiJ0ZXN0QHRlc3QxLmNvbSIsImlhdCI6MTY4Mjc3OTYwNSwiZXhwIjoxNjgyNzgwMjA1fQ.NpJQqwDjLJyEQyDpHbV6_6Fjj4pJ3vcrPw2dWF7_dpc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Black Brown Shoes\",\r\n    \"desc\" : \"Brown Shoes\",\r\n    \"price\" : 200,\r\n    \"category\" : \"ea912279-16a0-48ef-8e96-4be1e7128cec\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/product",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZWMyYzI4ZGYtYjQ5My00YjcxLTgyNjktNjc4NzEwYmFkMDM4IiwiZW1haWwiOiJ0ZXN0QHRlc3QxLmNvbSIsImlhdCI6MTY4Mjc3OTYwNSwiZXhwIjoxNjgyNzgwMjA1fQ.NpJQqwDjLJyEQyDpHbV6_6Fjj4pJ3vcrPw2dWF7_dpc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/fetch_all_products",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fetch_all_products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZWMyYzI4ZGYtYjQ5My00YjcxLTgyNjktNjc4NzEwYmFkMDM4IiwiZW1haWwiOiJ0ZXN0QHRlc3QxLmNvbSIsImlhdCI6MTY4Mjc4MDIyOCwiZXhwIjoxNjgyNzgwODI4fQ.HvCncgwPENmYNAHTHhBMYt_sH2aiLvdLwqv1HbVfSsA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\" : [\"5cc9b19d-c835-40ab-89ba-d72f78730328\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/add_to_cart",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"add_to_cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Cart Items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZWMyYzI4ZGYtYjQ5My00YjcxLTgyNjktNjc4NzEwYmFkMDM4IiwiZW1haWwiOiJ0ZXN0QHRlc3QxLmNvbSIsImlhdCI6MTY4Mjc4MDIyOCwiZXhwIjoxNjgyNzgwODI4fQ.HvCncgwPENmYNAHTHhBMYt_sH2aiLvdLwqv1HbVfSsA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/fetch_cart_items",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fetch_cart_items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZWMyYzI4ZGYtYjQ5My00YjcxLTgyNjktNjc4NzEwYmFkMDM4IiwiZW1haWwiOiJ0ZXN0QHRlc3QxLmNvbSIsImlhdCI6MTY4Mjc4MDIyOCwiZXhwIjoxNjgyNzgwODI4fQ.HvCncgwPENmYNAHTHhBMYt_sH2aiLvdLwqv1HbVfSsA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\" : \"14/13 Lukerganj Pryg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/create-order",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"create-order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
