@@ -1,4 +1,4 @@
-#express-store
+# express-store
 This repository contains the source code of an Express application implementing token based authentication, with store APIs, and dedicated frontend service as well
 
 **How to get the Backend service up and running?**
