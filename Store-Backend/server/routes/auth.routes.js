@@ -37,6 +37,7 @@ router.post("/login", validation(schema.login), async (req, res, next) => {
         if (await utils_user.verify_password(password, user[0].password)) {
           let token = await jwt.signAccessToken({
             user_id: user[0]?.user_id,
+            // cart_id: user[0]?.cart_id,
             email: user[0]?.email,
           });
           res.status(200).send({
@@ -67,6 +68,7 @@ router.post(
     try {
       const { email, password } = req.body;
       const uid = uuid.uuid();
+      // const cart_id = "c_id_" + uuid.uuid();
       const query = `INSERT INTO users (user_id, email, password) VALUES ('${uid}', '${email}', '${await utils_user.hash_password(
         password
       )}')`;

@@ -10,17 +10,16 @@ const uuid = require("uuidv4");
 const { signAccessToken } = require("../utils/jwt/index");
 const jwt = require("../utils/jwt/index");
 
-// Add New Product to the db
+// Add New Product to the cart
 router.post(
-  "/product",
+  "/add_to_cart",
   jwt.verifyAccessToken,
-  validation(schema.product),
+  validation(schema.cart),
   async (req, res, next) => {
     try {
-      const { name, price, category } = req.body;
-      console.log(category);
-      const uid = uuid.uuid();
-      const query = `INSERT INTO products (id, name, category_id, price) VALUES ('${uid}','${name}','${category}','${price}')`;
+      const { user_id } = req.payload;
+      const { product_id, units } = req.body;
+      const query = `INSERT INTO cart (user_id, product_id, units) VALUES ('${user_id}','${product_id}','${units}')`;
       //   INSERT INTO `test_db`.`products` (`id`, `name`, `category_id`, `desc`, `price`, `created_at`, `updated_at`) VALUES ('12345', 'test', '7b5fbdf8-3180-4060-8046-c0806693c00a', 'test', '12', '2023-04-29 16:24:53', '2023-04-29 16:24:53');
 
       connection.query(query, (err, result) => {
@@ -36,7 +35,7 @@ router.post(
           res.status(201).send({
             statusCode: 201,
             data: {},
-            message: "Product Added",
+            message: "Product Added to Cart",
             error: null,
           });
         }
@@ -47,13 +46,15 @@ router.post(
   }
 );
 
-// Fetch all products
+// Fetch cart items
 router.get(
-  "/fetch_all_products",
+  "/fetch_cart_items",
   jwt.verifyAccessToken,
   async (req, res, next) => {
     try {
-      let query = `SELECT * from products`;
+      let { user_id } = req.payload;
+      let query = `SELECT products.id, products.name, products.price, temp.units from (SELECT * from cart WHERE user_id = '${user_id}') 
+      as temp INNER JOIN products ON temp.product_id = products.id`;
       connection.query(query, (err, result) => {
         if (err) {
           res.status(400).send({
@@ -66,7 +67,7 @@ router.get(
           res.status(200).send({
             statusCode: 200,
             data: result,
-            message: "Fetched all products",
+            message: "Fetched all cart items",
             error: null,
           });
         }

@@ -19,6 +19,8 @@ const create_table_queries = {
 
   products:
     "CREATE TABLE `products` (`id` VARCHAR(200) NOT NULL,`name` VARCHAR(200) NOT NULL,`category_id` VARCHAR(200) NOT NULL,`price` BIGINT,`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,`updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY (`id`), FOREIGN KEY (`category_id`) REFERENCES categories(`category_id`));",
+
+  cart: "CREATE TABLE `cart` (`user_id` VARCHAR(200) NOT NULL,`product_id` VARCHAR(200) NOT NULL,`units` INT NOT NULL,`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,`updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  FOREIGN KEY (`product_id`) REFERENCES products(`id`),  FOREIGN KEY (`user_id`) REFERENCES users(`user_id`));",
 };
 
 connection.connect((err) => {
@@ -56,6 +58,12 @@ connection.connect((err) => {
     connection.query(create_table_queries.products, (err, result) => {
       if (err) throw err;
       console.log("Products Table created");
+    });
+
+    // Cart
+    connection.query(create_table_queries.cart, (err, result) => {
+      if (err) throw err;
+      console.log("Cart Table created");
     });
   } catch (error) {
     console.log(error);

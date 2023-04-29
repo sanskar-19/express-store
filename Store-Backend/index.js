@@ -13,6 +13,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use("/api", require("./server/routes/auth.routes"));
 app.use("/api", require("./server/routes/category.routes"));
 app.use("/api", require("./server/routes/product.routes"));
+app.use("/api", require("./server/routes/cart.routes"));
 
 app.use((err, req, res, next) => {
   res.status(err.status).send({
