@@ -1,0 +1,11 @@
+# express-store
+This repository contains the source code of an Express application implementing token based authentication, with store APIs, and dedicated frontend service as well
+
+#How to get it working?
+Follow the steps : 
+
+1. Open Store-Backend
+2. Go to server->configs->server.config.js
+3. Establish a secure db connection, preferrably would be using an .env instead of directly using the credentials
+4. Save the above changes and now open terminal in Store backend directory and type "npm start"
+5. The file will automatically run the DDL commands to create the db and related tables for the same.
