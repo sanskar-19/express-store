@@ -10,7 +10,6 @@ Follow the steps :
 4. Save the above changes and now open terminal in Store backend directory and type "npm start"
 5. The file will automatically run the DDL commands to create the db and related tables for the same.
 
-**Postman Collection
-**
+**Postman Collection**
 1. The postman collection only refers to how the APIs look like, running them directly would lead to 401 Unauthorized user as the token expiry has been set to 10minutes only.
 2. To use the same, don't forget to update the token in the authorization header.
