@@ -18,8 +18,18 @@ router.post(
   async (req, res, next) => {
     try {
       const { user_id } = req.payload;
-      const { product_id, units } = req.body;
-      const query = `INSERT INTO cart (user_id, product_id, units) VALUES ('${user_id}','${product_id}','${units}')`;
+      const { product_id } = req.body;
+      let elements = [];
+      for (
+        let productIndex = 0;
+        productIndex < product_id.length;
+        productIndex++
+      ) {
+        elements.push(`('${user_id}','${product_id[productIndex]}')`);
+      }
+      const query = `INSERT INTO cart (user_id, product_id) VALUES ${elements.join(
+        ","
+      )}`;
       //   INSERT INTO `test_db`.`products` (`id`, `name`, `category_id`, `desc`, `price`, `created_at`, `updated_at`) VALUES ('12345', 'test', '7b5fbdf8-3180-4060-8046-c0806693c00a', 'test', '12', '2023-04-29 16:24:53', '2023-04-29 16:24:53');
 
       connection.query(query, (err, result) => {
@@ -53,7 +63,7 @@ router.get(
   async (req, res, next) => {
     try {
       let { user_id } = req.payload;
-      let query = `SELECT products.id, products.name, products.price, temp.units from (SELECT * from cart WHERE user_id = '${user_id}') 
+      let query = `SELECT products.id, products.name, products.price from (SELECT * from cart WHERE user_id = '${user_id}') 
       as temp INNER JOIN products ON temp.product_id = products.id`;
       connection.query(query, (err, result) => {
         if (err) {

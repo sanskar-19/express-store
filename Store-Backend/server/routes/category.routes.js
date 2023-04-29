@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const createErrors = require("http-errors");
 const validation = require("../utils/middlewares/validation");
-const schema = require("../utils/validationSchemas/category");
+const schema = require("../utils/validationSchemas/product");
 const connection = require("../configs/db.config");
 const uuid = require("uuidv4");
 // JWT utils

@@ -37,7 +37,6 @@ router.post("/login", validation(schema.login), async (req, res, next) => {
         if (await utils_user.verify_password(password, user[0].password)) {
           let token = await jwt.signAccessToken({
             user_id: user[0]?.user_id,
-            // cart_id: user[0]?.cart_id,
             email: user[0]?.email,
           });
           res.status(200).send({

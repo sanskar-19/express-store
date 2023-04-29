@@ -12,7 +12,7 @@ const create_table_queries = {
     "CREATE TABLE `users` (`user_id` VARCHAR(100) NOT NULL,`email` VARCHAR(100) NOT NULL,`password` VARCHAR(200) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,UNIQUE(`email`), PRIMARY KEY (`user_id`));",
 
   orders:
-    "CREATE TABLE `orders` (`order_id` VARCHAR(200) NOT NULL,`user_id` VARCHAR(200) NOT NULL,`email` VARCHAR(100) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY (`order_id`), FOREIGN KEY (`user_id`) REFERENCES users(`user_id`));",
+    "CREATE TABLE `orders` (`order_id` VARCHAR(200) NOT NULL,`user_id` VARCHAR(200) NOT NULL,`email` VARCHAR(100) NOT NULL,`address` VARCHAR(200) NOT NULL,`options` VARCHAR(1000) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY (`order_id`), FOREIGN KEY (`user_id`) REFERENCES users(`user_id`));",
 
   categories:
     "CREATE TABLE `categories` (`category_id` VARCHAR(200) NOT NULL,`name` VARCHAR(100) NOT NULL,`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,`updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,UNIQUE(`name`),PRIMARY KEY (`category_id`));",
@@ -20,7 +20,7 @@ const create_table_queries = {
   products:
     "CREATE TABLE `products` (`id` VARCHAR(200) NOT NULL,`name` VARCHAR(200) NOT NULL,`category_id` VARCHAR(200) NOT NULL,`price` BIGINT,`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,`updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY (`id`), FOREIGN KEY (`category_id`) REFERENCES categories(`category_id`));",
 
-  cart: "CREATE TABLE `cart` (`user_id` VARCHAR(200) NOT NULL,`product_id` VARCHAR(200) NOT NULL,`units` INT NOT NULL,`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,`updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  FOREIGN KEY (`product_id`) REFERENCES products(`id`),  FOREIGN KEY (`user_id`) REFERENCES users(`user_id`));",
+  cart: "CREATE TABLE `cart` (`user_id` VARCHAR(200) NOT NULL,`product_id` VARCHAR(200) NOT NULL,`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,`updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  FOREIGN KEY (`product_id`) REFERENCES products(`id`),  FOREIGN KEY (`user_id`) REFERENCES users(`user_id`));",
 };
 
 connection.connect((err) => {
@@ -33,38 +33,40 @@ connection.connect((err) => {
     //     if (err) throw err;
     //     console.log("All dropped");
     //   }
-    // );
-    connection.query("DROP DATABASE test_db;");
-    connection.query("CREATE DATABASE test_db;");
+    // // );
+    // connection.query("DROP DATABASE test_db;");
+    // connection.query("CREATE DATABASE test_db;");
     connection.query("USE test_db;");
-    connection.query(create_table_queries.users, (err, result) => {
-      if (err) throw err;
-      console.log("Users Table created");
-    });
 
-    // Orders
-    connection.query(create_table_queries.orders, (err, result) => {
-      if (err) throw err;
-      console.log("Orders Table created");
-    });
+    // // Users
+    // connection.query(create_table_queries.users, (err, result) => {
+    //   if (err) throw err;
+    //   console.log("Users Table created");
+    // });
 
-    // Categories
-    connection.query(create_table_queries.categories, (err, result) => {
-      if (err) throw err;
-      console.log("Categories Table created");
-    });
+    // // Orders
+    // connection.query(create_table_queries.orders, (err, result) => {
+    //   if (err) throw err;
+    //   console.log("Orders Table created");
+    // });
 
-    // Products
-    connection.query(create_table_queries.products, (err, result) => {
-      if (err) throw err;
-      console.log("Products Table created");
-    });
+    // // Categories
+    // connection.query(create_table_queries.categories, (err, result) => {
+    //   if (err) throw err;
+    //   console.log("Categories Table created");
+    // });
 
-    // Cart
-    connection.query(create_table_queries.cart, (err, result) => {
-      if (err) throw err;
-      console.log("Cart Table created");
-    });
+    // // Products
+    // connection.query(create_table_queries.products, (err, result) => {
+    //   if (err) throw err;
+    //   console.log("Products Table created");
+    // });
+
+    // // Cart
+    // connection.query(create_table_queries.cart, (err, result) => {
+    //   if (err) throw err;
+    //   console.log("Cart Table created");
+    // });
   } catch (error) {
     console.log(error);
   }
