@@ -4,11 +4,15 @@
 @tailwind utilities;
 
 :root {
+  /* Colors */
   --background-color: #f2e8e6;
   --accent-color: #1e728e;
   --disabled-accent-color: #6eaabe;
   --focus-color: #c29bb6;
   --text-color: #3b3b3b;
+  --approved-color: #76ba1b;
+
+  /* Font Styles */
   --font-primary: "Poppins", sans-serif;
 }
 

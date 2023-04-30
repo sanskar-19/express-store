@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
-const CreateNewOrder = () => {
+const CreateNewOrder = ({ setOrder }) => {
   const {
     register,
     handleSubmit,
@@ -14,7 +14,8 @@ const CreateNewOrder = () => {
   async function handleCreateOrder(payload) {
     try {
       let apiResponse = await CREATE_ORDER(payload);
-      toast.success(apiResponse.data.message);
+      setOrder(apiResponse?.data);
+      toast.success(apiResponse?.data?.message);
     } catch (error) {
       if (error.statusCode == 401) {
         setTimeout(() => {

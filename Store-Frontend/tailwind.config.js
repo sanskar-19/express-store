@@ -14,6 +14,7 @@ module.exports = {
         textColor: "var(--text-color)",
         focusColor: "var(--focus-color)",
         disabledAccentColor: "var(--disabled-accent-color)",
+        approvedColor: "var(--approved-color)",
       },
       fontFamily: {
         poppins: "Poppins",
