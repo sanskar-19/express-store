@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color: #f2e8e6;
+  --accent-color: #1e728e;
+  --disabled-accent-color: #6eaabe;
+  --focus-color: #c29bb6;
+  --text-color: #3b3b3b;
+  --font-primary: "Poppins", sans-serif;
+}
+
+@media screen and (width <= 400px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+body {
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+}
+
+.field-input {
+  @apply border-0 outline-transparent h-12 w-full px-2 rounded-md focus:outline-2 outline-offset-1 focus:outline-focusColor;
+}
+
+.field-wrapper {
+  @apply relative flex flex-col gap-y-1 w-full;
+}
+
+.field-label {
+  @apply text-xl font-semibold w-full;
+}
+
+.input-error-message {
+  @apply text-sm;
+}
+
+.call-to-actions {
+  @apply h-12 max-w-[12.5rem] w-full bg-accentColor text-white font-medium rounded-md border-0 outline-0 cursor-pointer disabled:cursor-not-allowed bg-opacity-100 disabled:bg-disabledAccentColor hover:bg-focusColor;
+}
+
+.onboarding-forms {
+  @apply w-full flex flex-col gap-y-8;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #918f8f;
+  border-radius: 48px;
+}

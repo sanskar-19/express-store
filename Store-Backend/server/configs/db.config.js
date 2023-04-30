@@ -36,31 +36,26 @@ connection.connect((err) => {
     // );
     connection.query("CREATE DATABASE test_db;");
     connection.query("USE test_db;");
-
     // Users
     connection.query(create_table_queries.users, (err, result) => {
       if (err) throw err;
       console.log("Users Table created");
     });
-
     // Orders
     connection.query(create_table_queries.orders, (err, result) => {
       if (err) throw err;
       console.log("Orders Table created");
     });
-
     // Categories
     connection.query(create_table_queries.categories, (err, result) => {
       if (err) throw err;
       console.log("Categories Table created");
     });
-
     // Products
     connection.query(create_table_queries.products, (err, result) => {
       if (err) throw err;
       console.log("Products Table created");
     });
-
     // Cart
     connection.query(create_table_queries.cart, (err, result) => {
       if (err) throw err;
